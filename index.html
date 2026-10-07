@@ -1,0 +1,4213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Glow & Grace Salon</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            width: 100%;
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+
+        body {
+            width: 100%;
+            max-width: 100%;
+
+            overflow-x: hidden;
+
+            font-family: Arial, sans-serif;
+
+            background: #fff8fc;
+
+            color: #251c23;
+
+            /*
+                Navbar fixed है,
+                इसलिए ऊपर इतनी जगह दी गई है।
+            */
+
+            padding-top: 82px;
+        }
+
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+
+            width: 100%;
+
+            height: 82px;
+
+            padding: 14px 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #f1dce8;
+
+            /*
+                IMPORTANT:
+                Navbar हमेशा ऊपर रहेगा
+            */
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            z-index: 9999;
+
+            box-shadow:
+                0 5px 20px rgba(50, 20, 40, 0.05);
+        }
+
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo-icon {
+
+            width: 46px;
+
+            height: 46px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4fa3,
+                    #9c4dcc
+                );
+
+            color: white;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 10px 25px
+                rgba(226, 63, 139, 0.3);
+        }
+
+
+        .logo-text h2 {
+
+            font-size: 20px;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-text h2 span {
+
+            color: #e83e8c;
+        }
+
+
+        .logo-text p {
+
+            margin-top: 2px;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            color: #9b7086;
+        }
+
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 26px;
+
+            flex-shrink: 0;
+        }
+
+
+        nav a {
+
+            text-decoration: none;
+
+            color: #493743;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            color: #e83e8c;
+        }
+
+
+
+        /* =========================
+           HEADER RIGHT
+        ========================= */
+
+        .header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-shrink: 0;
+        }
+
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+
+            width: 210px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            background: #fff5fa;
+
+            border: 1px solid #efcfe0;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+        }
+
+
+        .search-input {
+
+            width: 100%;
+
+            height: 100%;
+
+            padding: 0 15px;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            font-size: 13px;
+        }
+
+
+        .search-btn {
+
+            width: 45px;
+
+            height: 100%;
+
+            border: none;
+
+            background: #e83e8c;
+
+            color: white;
+
+            cursor: pointer;
+
+            flex-shrink: 0;
+        }
+
+
+
+        /* =========================
+           MOBILE MENU BUTTON
+        ========================= */
+
+        .menu-btn {
+
+            display: none;
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #ffe5f1;
+
+            color: #df3c8b;
+
+            font-size: 21px;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =========================
+           MOBILE NAV
+        ========================= */
+
+        .mobile-nav {
+
+            display: none;
+
+            position: fixed;
+
+            top: 82px;
+
+            left: 0;
+
+            width: 100%;
+
+            background: white;
+
+            padding: 20px 6%;
+
+            z-index: 9998;
+
+            border-bottom: 1px solid #f1dce8;
+
+            box-shadow:
+                0 15px 30px
+                rgba(50, 20, 40, 0.1);
+        }
+
+
+        .mobile-nav a {
+
+            display: block;
+
+            padding: 14px 0;
+
+            text-decoration: none;
+
+            color: #493743;
+
+            font-weight: 600;
+
+            border-bottom: 1px solid #f5e3ec;
+        }
+
+
+        .mobile-nav a:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .mobile-nav.show {
+
+            display: block;
+        }
+
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            width: 100%;
+
+            min-height: 650px;
+
+            padding: 70px 7%;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 0.9fr);
+
+            align-items: center;
+
+            gap: 50px;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 20%,
+                    #ffd7ea,
+                    transparent 30%
+                ),
+
+                #fff8fc;
+        }
+
+
+        .hero-content {
+
+            min-width: 0;
+        }
+
+
+        .mini-title {
+
+            margin-bottom: 18px;
+
+            color: #df3c8b;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .hero h1 {
+
+            max-width: 600px;
+
+            font-size: clamp(50px, 6vw, 78px);
+
+            line-height: 0.95;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 span {
+
+            display: block;
+
+            color: #df3c8b;
+        }
+
+
+        .hero-description {
+
+            max-width: 530px;
+
+            color: #765f6d;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+
+
+        /* HERO BUTTONS */
+
+        .hero-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .main-btn,
+        .outline-btn {
+
+            padding: 14px 22px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        .main-btn {
+
+            background: #e83e8c;
+
+            color: white;
+
+            box-shadow:
+                0 12px 25px
+                rgba(232, 62, 140, 0.3);
+        }
+
+
+        .main-btn span {
+
+            margin-left: 8px;
+        }
+
+
+        .outline-btn {
+
+            color: #df3c8b;
+
+            background: white;
+
+            border: 1px solid #efbfd7;
+        }
+
+
+
+        /* HERO STATS */
+
+        .hero-stats {
+
+            display: flex;
+
+            gap: 40px;
+
+            margin-top: 45px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .hero-stats div {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .hero-stats strong {
+
+            font-size: 25px;
+
+            color: #d93682;
+        }
+
+
+        .hero-stats span {
+
+            font-size: 11px;
+
+            color: #806c77;
+        }
+
+
+
+        /* =========================
+           HERO PHOTO
+        ========================= */
+
+        .hero-photo {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            position: relative;
+
+            justify-self: center;
+
+            min-width: 0;
+        }
+
+
+        .hero-photo img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 530px;
+
+            object-fit: cover;
+
+            border-radius:
+                48% 48% 25px 25px;
+
+            position: relative;
+
+            z-index: 2;
+
+            box-shadow:
+                0 30px 70px
+                rgba(90, 30, 65, 0.25);
+        }
+
+
+        .photo-circle {
+
+            width: 440px;
+
+            height: 440px;
+
+            max-width: 90%;
+
+            position: absolute;
+
+            right: -20px;
+
+            top: 40px;
+
+            border-radius: 50%;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ffafd4,
+                    #bd7be7
+                );
+
+            transform: rotate(10deg);
+
+            z-index: 1;
+        }
+
+
+        /* EXPERIENCE CARD */
+
+        .experience-card {
+
+            position: absolute;
+
+            left: -35px;
+
+            bottom: 45px;
+
+            max-width: calc(100% - 10px);
+
+            z-index: 5;
+
+            padding: 14px 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(60, 25, 50, 0.18);
+        }
+
+
+        .experience-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            background: #ffe2ef;
+
+            color: #e83e8c;
+        }
+
+
+        .experience-card div:last-child {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+
+        .experience-card small {
+
+            color: #8a7380;
+        }
+
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+
+            width: 100%;
+
+            padding: 100px 7%;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 0.9fr)
+                minmax(0, 1fr);
+
+            align-items: center;
+
+            gap: 80px;
+
+            background: white;
+        }
+
+
+        .about-image {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            position: relative;
+
+            min-width: 0;
+        }
+
+
+        .about-image img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 500px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 25px 60px
+                rgba(70, 25, 55, 0.15);
+        }
+
+
+        .about-badge {
+
+            position: absolute;
+
+            right: -25px;
+
+            bottom: 30px;
+
+            padding: 18px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            background: #e83e8c;
+
+            color: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 30px
+                rgba(232, 62, 140, 0.3);
+        }
+
+
+        .about-badge strong {
+
+            font-size: 28px;
+        }
+
+
+        .about-badge span {
+
+            font-size: 11px;
+
+            line-height: 1.4;
+        }
+
+
+        .about-content {
+
+            min-width: 0;
+        }
+
+
+        .section-label {
+
+            color: #df3c8b;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .about-content h2 {
+
+            font-size: 48px;
+
+            line-height: 1;
+
+            margin: 12px 0 25px;
+        }
+
+
+        .about-content h2 span {
+
+            display: block;
+
+            color: #df3c8b;
+        }
+
+
+        .about-content > p {
+
+            max-width: 560px;
+
+            color: #776672;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+
+        .about-btn {
+
+            margin-top: 15px;
+
+            padding: 13px 20px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #e83e8c;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+
+            width: 100%;
+
+            padding: 90px 7%;
+
+            overflow: hidden;
+        }
+
+
+        .services-heading {
+
+            display: flex;
+
+            align-items: end;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .services-heading h2 {
+
+            font-size: 45px;
+
+            margin-top: 10px;
+        }
+
+
+        .services-heading h2 span {
+
+            color: #df3c8b;
+        }
+
+
+        .services-subtitle {
+
+            max-width: 220px;
+
+            color: #806c77;
+
+            line-height: 1.6;
+        }
+
+
+
+        /* SEARCH */
+
+        .service-search {
+
+            width: 100%;
+
+            margin-bottom: 22px;
+        }
+
+
+        .big-search {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 0 18px;
+
+            background: white;
+
+            border: 1px solid #efcfdf;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(70, 30, 55, 0.06);
+        }
+
+
+        .big-search > span {
+
+            flex-shrink: 0;
+
+            font-size: 18px;
+        }
+
+
+        .service-search-input {
+
+            width: 100%;
+
+            min-width: 0;
+
+            height: 100%;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            font-size: 14px;
+        }
+
+
+
+        /* FILTER */
+
+        .filter-area {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .filter-btn {
+
+            padding: 10px 18px;
+
+            border: 1px solid #ebc7d9;
+
+            background: white;
+
+            border-radius: 25px;
+
+            color: #654b5b;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .filter-btn:hover,
+        .filter-btn.active {
+
+            background: #e83e8c;
+
+            color: white;
+
+            border-color: #e83e8c;
+
+            transform: translateY(-2px);
+        }
+
+
+
+        /* SERVICE GRID */
+
+        .service-grid {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        .service-card {
+
+            width: 100%;
+
+            min-width: 0;
+
+            overflow: hidden;
+
+            background: white;
+
+            border: 1px solid #f0dce6;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(70, 30, 55, 0.07);
+
+            transition: 0.35s;
+        }
+
+
+        .service-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 22px 50px
+                rgba(70, 30, 55, 0.14);
+        }
+
+
+        .service-img {
+
+            width: 100%;
+
+            height: 235px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .service-img img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+
+        .service-card:hover
+        .service-img img {
+
+            transform: scale(1.07);
+        }
+
+
+        .service-price {
+
+            position: absolute;
+
+            top: 14px;
+
+            right: 14px;
+
+            padding: 8px 12px;
+
+            background: white;
+
+            color: #df3c8b;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 6px 15px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        .service-info {
+
+            width: 100%;
+
+            padding: 20px;
+        }
+
+
+        .service-info > p {
+
+            color: #df3c8b;
+
+            font-size: 9px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .service-info h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .service-info > span {
+
+            display: block;
+
+            min-height: 40px;
+
+            color: #806c77;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            margin-bottom: 16px;
+        }
+
+
+        .service-info button {
+
+            border: none;
+
+            background: transparent;
+
+            color: #df3c8b;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+
+            width: 100%;
+
+            padding: 90px 7%;
+
+            background: white;
+        }
+
+
+        .gallery-heading {
+
+            margin-bottom: 30px;
+        }
+
+
+        .gallery-heading h2 {
+
+            font-size: 45px;
+
+            margin-top: 10px;
+        }
+
+
+        .gallery-heading h2 span {
+
+            color: #df3c8b;
+        }
+
+
+        .gallery-grid {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+
+        .gallery-grid img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 300px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            transition: 0.4s;
+        }
+
+
+        .gallery-grid img:hover {
+
+            transform: scale(1.02);
+        }
+
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+
+            width: 100%;
+
+            padding: 90px 7%;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(280px, 0.7fr);
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .contact-content {
+
+            min-width: 0;
+        }
+
+
+        .contact-content h2 {
+
+            font-size: 48px;
+
+            line-height: 1;
+
+            margin: 12px 0 20px;
+        }
+
+
+        .contact-content h2 span {
+
+            display: block;
+
+            color: #df3c8b;
+        }
+
+
+        .contact-content > p {
+
+            max-width: 500px;
+
+            color: #776672;
+
+            line-height: 1.7;
+        }
+
+
+        .contact-details {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+
+        .contact-details div {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .contact-details strong {
+
+            color: #df3c8b;
+        }
+
+
+        .contact-details span {
+
+            color: #725e69;
+
+            font-size: 13px;
+        }
+
+
+
+        /* CONTACT BOX */
+
+        .contact-box {
+
+            width: 100%;
+
+            padding: 30px;
+
+            background: white;
+
+            border: 1px solid #efd9e5;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(60, 25, 50, 0.1);
+        }
+
+
+        .contact-box h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .contact-box input {
+
+            width: 100%;
+
+            height: 48px;
+
+            margin-bottom: 12px;
+
+            padding: 0 15px;
+
+            border: 1px solid #ecd2df;
+
+            outline: none;
+
+            border-radius: 12px;
+
+            background: #fffafd;
+        }
+
+
+        .contact-box button {
+
+            width: 100%;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #e83e8c;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            width: 100%;
+
+            padding: 55px 7% 20px;
+
+            background: #251a23;
+
+            color: white;
+        }
+
+
+        .footer-main {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.5fr)
+                minmax(0, 1fr)
+                minmax(0, 1fr);
+
+            gap: 50px;
+
+            padding-bottom: 40px;
+        }
+
+
+        .footer-left h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .footer-left h2 span {
+
+            color: #f05a9f;
+        }
+
+
+        .footer-left p {
+
+            color: #cbb9c5;
+
+            font-size: 13px;
+        }
+
+
+        .footer-links,
+        .footer-contact {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .footer-links h3,
+        .footer-contact h3 {
+
+            margin-bottom: 5px;
+        }
+
+
+        .footer-links a {
+
+            text-decoration: none;
+
+            color: #cbb9c5;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+
+        .footer-links a:hover {
+
+            color: #f05a9f;
+        }
+
+
+        .footer-contact p {
+
+            color: #cbb9c5;
+
+            font-size: 13px;
+        }
+
+
+        .footer-bottom {
+
+            padding-top: 20px;
+
+            border-top: 1px solid #493941;
+
+            text-align: center;
+        }
+
+
+        .footer-bottom p {
+
+            color: #a994a1;
+
+            font-size: 12px;
+        }
+
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 1100px) {
+
+            .header {
+
+                padding-left: 4%;
+
+                padding-right: 4%;
+            }
+
+
+            nav {
+
+                gap: 15px;
+            }
+
+
+            .search-box {
+
+                width: 170px;
+            }
+
+
+            .hero {
+
+                padding-left: 5%;
+
+                padding-right: 5%;
+
+                gap: 35px;
+            }
+
+
+            .about {
+
+                padding-left: 5%;
+
+                padding-right: 5%;
+
+                gap: 50px;
+            }
+
+
+            .services,
+            .gallery,
+            .contact {
+
+                padding-left: 5%;
+
+                padding-right: 5%;
+            }
+
+
+            .service-grid {
+
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+
+            .gallery-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+
+        /* ==================================================
+           TABLET / SMALL LAPTOP
+        ================================================== */
+
+        @media (max-width: 1000px) {
+
+            nav {
+
+                display: none;
+            }
+
+
+            .search-box {
+
+                display: none;
+            }
+
+
+            .menu-btn {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+            }
+
+
+            .mobile-nav {
+
+                top: 82px;
+            }
+
+        }
+
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 800px) {
+
+            body {
+
+                padding-top: 70px;
+            }
+
+
+            /* HEADER */
+
+            .header {
+
+                height: 70px;
+
+                padding: 12px 5%;
+            }
+
+
+            .menu-btn {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+            }
+
+
+            .mobile-nav {
+
+                top: 70px;
+
+                padding-left: 6%;
+
+                padding-right: 6%;
+            }
+
+
+
+            /* HERO */
+
+            .hero {
+
+                width: 100%;
+
+                min-height: auto;
+
+                padding: 60px 6%;
+
+                display: grid;
+
+                grid-template-columns:
+                    minmax(0, 1fr);
+
+                gap: 45px;
+
+                text-align: center;
+            }
+
+
+            .hero-content {
+
+                width: 100%;
+
+                min-width: 0;
+            }
+
+
+            .hero h1 {
+
+                max-width: 100%;
+
+                font-size:
+                    clamp(
+                        42px,
+                        12vw,
+                        58px
+                    );
+            }
+
+
+            .hero-description {
+
+                max-width: 100%;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .hero-buttons {
+
+                justify-content: center;
+            }
+
+
+            .hero-stats {
+
+                justify-content: center;
+
+                gap: 22px;
+            }
+
+
+            .hero-photo {
+
+                width: 100%;
+
+                max-width: 450px;
+
+                margin: auto;
+            }
+
+
+            .hero-photo img {
+
+                width: 100%;
+
+                height: 430px;
+            }
+
+
+            .photo-circle {
+
+                width: 350px;
+
+                height: 350px;
+
+                max-width: 80%;
+
+                right: 0;
+
+                top: 30px;
+            }
+
+
+            .experience-card {
+
+                left: 5px;
+
+                bottom: 25px;
+            }
+
+
+
+            /* ABOUT */
+
+            .about {
+
+                width: 100%;
+
+                padding: 70px 6%;
+
+                display: grid;
+
+                grid-template-columns:
+                    minmax(0, 1fr);
+
+                gap: 50px;
+
+                text-align: center;
+            }
+
+
+            .about-image {
+
+                width: 100%;
+
+                max-width: 500px;
+
+                margin: auto;
+            }
+
+
+            .about-image img {
+
+                height: 430px;
+            }
+
+
+            .about-badge {
+
+                right: 5px;
+            }
+
+
+            .about-content {
+
+                width: 100%;
+            }
+
+
+            .about-content > p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+
+            /* SERVICES */
+
+            .services {
+
+                width: 100%;
+
+                padding: 70px 6%;
+            }
+
+
+            .services-heading {
+
+                display: block;
+
+                margin-bottom: 25px;
+            }
+
+
+            .services-heading h2 {
+
+                font-size: 40px;
+            }
+
+
+            .services-subtitle {
+
+                margin-top: 12px;
+
+                max-width: 100%;
+            }
+
+
+            .big-search {
+
+                width: 100%;
+            }
+
+
+            .filter-area {
+
+                width: 100%;
+            }
+
+
+            .filter-btn {
+
+                padding: 9px 14px;
+
+                font-size: 12px;
+            }
+
+
+            .service-grid {
+
+                width: 100%;
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 16px;
+            }
+
+
+            .service-img {
+
+                height: 220px;
+            }
+
+
+            .service-info {
+
+                padding: 16px;
+            }
+
+
+            .service-info h3 {
+
+                font-size: 17px;
+            }
+
+
+
+            /* GALLERY */
+
+            .gallery {
+
+                width: 100%;
+
+                padding: 70px 6%;
+            }
+
+
+            .gallery-heading h2 {
+
+                font-size: 40px;
+            }
+
+
+            .gallery-grid {
+
+                width: 100%;
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 12px;
+            }
+
+
+            .gallery-grid img {
+
+                height: 250px;
+            }
+
+
+
+            /* CONTACT */
+
+            .contact {
+
+                width: 100%;
+
+                padding: 70px 6%;
+
+                grid-template-columns:
+                    minmax(0, 1fr);
+
+                gap: 40px;
+
+                text-align: center;
+            }
+
+
+            .contact-content h2 {
+
+                font-size: 42px;
+            }
+
+
+            .contact-content > p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .contact-box {
+
+                width: 100%;
+
+                text-align: left;
+            }
+
+
+
+            /* FOOTER */
+
+            footer {
+
+                width: 100%;
+
+                padding: 50px 6% 20px;
+            }
+
+
+            .footer-main {
+
+                width: 100%;
+
+                grid-template-columns:
+                    minmax(0, 1fr);
+
+                gap: 30px;
+
+                text-align: center;
+            }
+
+
+            .footer-links,
+            .footer-contact {
+
+                align-items: center;
+            }
+
+        }
+
+
+
+        /* ==================================================
+           SMALL MOBILE
+        ================================================== */
+
+        @media (max-width: 500px) {
+
+            body {
+
+                padding-top: 65px;
+            }
+
+
+            .header {
+
+                height: 65px;
+
+                padding: 10px 4%;
+            }
+
+
+            .mobile-nav {
+
+                top: 65px;
+            }
+
+
+            .logo-icon {
+
+                width: 40px;
+
+                height: 40px;
+
+                border-radius: 12px;
+            }
+
+
+            .logo-text h2 {
+
+                font-size: 17px;
+            }
+
+
+            .logo-text p {
+
+                font-size: 6px;
+
+                letter-spacing: 2px;
+            }
+
+
+
+            /* HERO */
+
+            .hero {
+
+                padding: 50px 5%;
+            }
+
+
+            .hero h1 {
+
+                font-size: 43px;
+            }
+
+
+            .hero-description {
+
+                font-size: 13px;
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+
+            .main-btn,
+            .outline-btn {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+
+            .hero-stats {
+
+                gap: 15px;
+
+                justify-content:
+                    space-between;
+            }
+
+
+            .hero-stats strong {
+
+                font-size: 20px;
+            }
+
+
+            .hero-stats span {
+
+                font-size: 9px;
+            }
+
+
+            .hero-photo {
+
+                max-width: 100%;
+            }
+
+
+            .hero-photo img {
+
+                height: 390px;
+            }
+
+
+            .photo-circle {
+
+                width: 300px;
+
+                height: 300px;
+
+                max-width: 75%;
+
+                right: 0;
+            }
+
+
+            .experience-card {
+
+                left: 0;
+
+                padding: 10px 12px;
+            }
+
+
+
+            /* ABOUT */
+
+            .about {
+
+                padding: 60px 5%;
+            }
+
+
+            .about-image img {
+
+                height: 380px;
+            }
+
+
+            .about-badge {
+
+                padding: 12px 15px;
+
+                right: 0;
+            }
+
+
+            .about-badge strong {
+
+                font-size: 22px;
+            }
+
+
+            .about-content h2 {
+
+                font-size: 38px;
+            }
+
+
+
+            /* SERVICES */
+
+            .services {
+
+                padding: 60px 5%;
+            }
+
+
+            .services-heading h2 {
+
+                font-size: 36px;
+            }
+
+
+            .big-search {
+
+                height: 50px;
+            }
+
+
+            .filter-area {
+
+                gap: 7px;
+            }
+
+
+            .filter-btn {
+
+                padding: 8px 11px;
+
+                font-size: 10px;
+            }
+
+
+            .service-grid {
+
+                grid-template-columns:
+                    minmax(0, 1fr);
+            }
+
+
+            .service-img {
+
+                height: 260px;
+            }
+
+
+            .service-info {
+
+                padding: 18px;
+            }
+
+
+
+            /* GALLERY */
+
+            .gallery {
+
+                padding: 60px 5%;
+            }
+
+
+            .gallery-heading h2 {
+
+                font-size: 36px;
+            }
+
+
+            .gallery-grid {
+
+                grid-template-columns:
+                    minmax(0, 1fr);
+            }
+
+
+            .gallery-grid img {
+
+                height: 320px;
+            }
+
+
+
+            /* CONTACT */
+
+            .contact {
+
+                padding: 60px 5%;
+            }
+
+
+            .contact-content h2 {
+
+                font-size: 36px;
+            }
+
+
+            .contact-box {
+
+                padding: 22px;
+            }
+
+
+
+            /* FOOTER */
+
+            footer {
+
+                padding: 45px 5% 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header class="header" id="home">
+
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ✂
+        </div>
+
+        <div class="logo-text">
+
+            <h2>
+                Glow<span>&</span>Grace
+            </h2>
+
+            <p>
+                BEAUTY SALON
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+
+    <div class="header-right">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Search service..."
+            >
+
+            <button class="search-btn">
+                🔍
+            </button>
+
+        </div>
+
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================
+     MOBILE NAV
+===================================== -->
+
+<div class="mobile-nav" id="mobileNav">
+
+    <a href="#home">Home</a>
+
+    <a href="#about">About</a>
+
+    <a href="#services">Services</a>
+
+    <a href="#gallery">Gallery</a>
+
+    <a href="#contact">Contact</a>
+
+</div>
+
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+
+    <div class="hero-content">
+
+
+        <p class="mini-title">
+            ✦ PREMIUM BEAUTY EXPERIENCE
+        </p>
+
+
+        <h1>
+
+            Your Style.
+
+            <span>
+                Your Beauty.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Discover professional haircuts,
+            styling, grooming and beauty
+            services designed to make you
+            feel confident.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#services"
+                class="main-btn"
+            >
+
+                Explore Services
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="outline-btn"
+            >
+
+                Book Appointment
+
+            </a>
+
+        </div>
+
+
+
+        <div class="hero-stats">
+
+
+            <div>
+
+                <strong>
+                    10+
+                </strong>
+
+                <span>
+                    Years Experience
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    5K+
+                </strong>
+
+                <span>
+                    Happy Clients
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    20+
+                </strong>
+
+                <span>
+                    Services
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="hero-photo">
+
+        <div class="photo-circle"></div>
+
+
+        <img
+            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg"
+            alt="Professional Hair Styling"
+        >
+
+
+        <div class="experience-card">
+
+            <div class="experience-icon">
+                ✂
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Perfect Style
+                </strong>
+
+                <small>
+                    Made For You
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     ABOUT
+===================================== -->
+
+<section
+    class="about"
+    id="about"
+>
+
+
+    <div class="about-image">
+
+
+        <img
+            src="https://images.pexels.com/photos/3992870/pexels-photo-3992870.jpeg"
+            alt="Salon Hair Service"
+        >
+
+
+        <div class="about-badge">
+
+            <strong>
+                10+
+            </strong>
+
+            <span>
+                Years Of<br>
+                Experience
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="about-content">
+
+
+        <p class="section-label">
+            ABOUT OUR SALON
+        </p>
+
+
+        <h2>
+
+            Beauty Starts
+
+            <span>
+                With You.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            At Glow & Grace, we believe
+            that your hairstyle should match
+            your personality. Our professional
+            stylists focus on modern looks,
+            quality service and a comfortable
+            salon experience.
+
+        </p>
+
+
+        <p>
+
+            From a simple haircut to a
+            complete makeover, we are here
+            to create a style that feels right
+            for you.
+
+        </p>
+
+
+        <button class="about-btn">
+
+            Discover More →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     SERVICES
+===================================== -->
+
+<section
+    class="services"
+    id="services"
+>
+
+
+    <div class="services-heading">
+
+
+        <div>
+
+            <p class="section-label">
+                OUR SERVICES
+            </p>
+
+
+            <h2>
+
+                Find Your
+
+                <span>
+                    Perfect Style
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <p class="services-subtitle">
+
+            Choose from our professional
+            salon services.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="service-search">
+
+        <div class="big-search">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                class="service-search-input"
+                id="serviceSearch"
+                placeholder="Search haircut, beard, facial..."
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FILTER -->
+
+    <div class="filter-area">
+
+
+        <button
+            class="filter-btn active"
+            data-category="all"
+        >
+            All
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="haircut"
+        >
+            Hair Cut
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="beard"
+        >
+            Beard
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="styling"
+        >
+            Styling
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="color"
+        >
+            Hair Color
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="treatment"
+        >
+            Treatment
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="facial"
+        >
+            Facial
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="grooming"
+        >
+            Grooming
+        </button>
+
+
+    </div>
+
+
+
+    <!-- SERVICE CARDS -->
+
+    <div class="service-grid">
+
+
+        <!-- 1 -->
+
+        <div
+            class="service-card"
+            data-category="haircut"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3992870/pexels-photo-3992870.jpeg"
+                    alt="Classic Hair Cut"
+                >
+
+                <span class="service-price">
+                    ₹499
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    HAIR CUT
+                </p>
+
+                <h3>
+                    Classic Hair Cut
+                </h3>
+
+                <span>
+                    Clean and stylish everyday haircut.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2 -->
+
+        <div
+            class="service-card"
+            data-category="haircut"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3993320/pexels-photo-3993320.jpeg"
+                    alt="Modern Hair Cut"
+                >
+
+                <span class="service-price">
+                    ₹599
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    HAIR CUT
+                </p>
+
+                <h3>
+                    Modern Hair Cut
+                </h3>
+
+                <span>
+                    Trendy cut with a modern finish.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 3 -->
+
+        <div
+            class="service-card"
+            data-category="haircut"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3998422/pexels-photo-3998422.jpeg"
+                    alt="Layer Hair Cut"
+                >
+
+                <span class="service-price">
+                    ₹699
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    HAIR CUT
+                </p>
+
+                <h3>
+                    Layer Hair Cut
+                </h3>
+
+                <span>
+                    Soft layers for a fresh appearance.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 4 -->
+
+        <div
+            class="service-card"
+            data-category="haircut"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg"
+                    alt="Fade Hair Cut"
+                >
+
+                <span class="service-price">
+                    ₹599
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    HAIR CUT
+                </p>
+
+                <h3>
+                    Fade Hair Cut
+                </h3>
+
+                <span>
+                    Sharp fade with a clean finish.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 5 -->
+
+        <div
+            class="service-card"
+            data-category="beard"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg"
+                    alt="Beard Cut"
+                >
+
+                <span class="service-price">
+                    ₹299
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    BEARD
+                </p>
+
+                <h3>
+                    Beard Cut
+                </h3>
+
+                <span>
+                    Professional beard shaping and trim.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 6 -->
+
+        <div
+            class="service-card"
+            data-category="beard"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg"
+                    alt="Beard Styling"
+                >
+
+                <span class="service-price">
+                    ₹399
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    BEARD
+                </p>
+
+                <h3>
+                    Beard Styling
+                </h3>
+
+                <span>
+                    Detailed shaping for your beard style.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 7 -->
+
+        <div
+            class="service-card"
+            data-category="grooming"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/1570806/pexels-photo-1570806.jpeg"
+                    alt="Clean Shave"
+                >
+
+                <span class="service-price">
+                    ₹249
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    GROOMING
+                </p>
+
+                <h3>
+                    Clean Shave
+                </h3>
+
+                <span>
+                    Smooth and comfortable shaving service.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 8 -->
+
+        <div
+            class="service-card"
+            data-category="styling"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg"
+                    alt="Hair Styling"
+                >
+
+                <span class="service-price">
+                    ₹799
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    STYLING
+                </p>
+
+                <h3>
+                    Hair Styling
+                </h3>
+
+                <span>
+                    Professional styling for your special look.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 9 -->
+
+        <div
+            class="service-card"
+            data-category="styling"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3992869/pexels-photo-3992869.jpeg"
+                    alt="Blow Dry"
+                >
+
+                <span class="service-price">
+                    ₹599
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    STYLING
+                </p>
+
+                <h3>
+                    Blow Dry
+                </h3>
+
+                <span>
+                    Smooth and beautiful blow-dry finish.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 10 -->
+
+        <div
+            class="service-card"
+            data-category="styling"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg"
+                    alt="Hair Straightening"
+                >
+
+                <span class="service-price">
+                    ₹1,499
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    STYLING
+                </p>
+
+                <h3>
+                    Hair Straightening
+                </h3>
+
+                <span>
+                    Sleek and smooth looking hair finish.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 11 -->
+
+        <div
+            class="service-card"
+            data-category="treatment"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3738339/pexels-photo-3738339.jpeg"
+                    alt="Hair Spa"
+                >
+
+                <span class="service-price">
+                    ₹899
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    TREATMENT
+                </p>
+
+                <h3>
+                    Hair Spa
+                </h3>
+
+                <span>
+                    Relaxing hair care and conditioning.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 12 -->
+
+        <div
+            class="service-card"
+            data-category="treatment"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3993312/pexels-photo-3993312.jpeg"
+                    alt="Hair Treatment"
+                >
+
+                <span class="service-price">
+                    ₹1,299
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    TREATMENT
+                </p>
+
+                <h3>
+                    Hair Treatment
+                </h3>
+
+                <span>
+                    Premium care for healthy-looking hair.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 13 -->
+
+        <div
+            class="service-card"
+            data-category="color"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3993448/pexels-photo-3993448.jpeg"
+                    alt="Hair Color"
+                >
+
+                <span class="service-price">
+                    ₹999
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    HAIR COLOR
+                </p>
+
+                <h3>
+                    Hair Color
+                </h3>
+
+                <span>
+                    Fresh color with a beautiful finish.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 14 -->
+
+        <div
+            class="service-card"
+            data-category="color"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3993298/pexels-photo-3993298.jpeg"
+                    alt="Highlights"
+                >
+
+                <span class="service-price">
+                    ₹1,499
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    HAIR COLOR
+                </p>
+
+                <h3>
+                    Hair Highlights
+                </h3>
+
+                <span>
+                    Add dimension and style to your hair.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 15 -->
+
+        <div
+            class="service-card"
+            data-category="facial"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3985332/pexels-photo-3985332.jpeg"
+                    alt="Face Facial"
+                >
+
+                <span class="service-price">
+                    ₹799
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    FACIAL
+                </p>
+
+                <h3>
+                    Glow Facial
+                </h3>
+
+                <span>
+                    Refreshing facial care for glowing-looking skin.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 16 -->
+
+        <div
+            class="service-card"
+            data-category="facial"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg"
+                    alt="Face Cleanup"
+                >
+
+                <span class="service-price">
+                    ₹499
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    FACIAL
+                </p>
+
+                <h3>
+                    Face Cleanup
+                </h3>
+
+                <span>
+                    Simple refreshing skincare session.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 17 -->
+
+        <div
+            class="service-card"
+            data-category="grooming"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg"
+                    alt="Face Scrub"
+                >
+
+                <span class="service-price">
+                    ₹399
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    GROOMING
+                </p>
+
+                <h3>
+                    Face Scrub
+                </h3>
+
+                <span>
+                    Gentle exfoliation for refreshed-looking skin.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 18 -->
+
+        <div
+            class="service-card"
+            data-category="grooming"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3998416/pexels-photo-3998416.jpeg"
+                    alt="Head Massage"
+                >
+
+                <span class="service-price">
+                    ₹499
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    GROOMING
+                </p>
+
+                <h3>
+                    Head Massage
+                </h3>
+
+                <span>
+                    Relaxing scalp massage experience.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 19 -->
+
+        <div
+            class="service-card"
+            data-category="beard"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/769739/pexels-photo-769739.jpeg"
+                    alt="Beard Trim"
+                >
+
+                <span class="service-price">
+                    ₹349
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    BEARD
+                </p>
+
+                <h3>
+                    Beard Trim
+                </h3>
+
+                <span>
+                    Neat and professional beard trimming.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 20 -->
+
+        <div
+            class="service-card"
+            data-category="styling"
+        >
+
+            <div class="service-img">
+
+                <img
+                    src="https://images.pexels.com/photos/3993321/pexels-photo-3993321.jpeg"
+                    alt="Premium Styling"
+                >
+
+                <span class="service-price">
+                    ₹1,199
+                </span>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <p>
+                    STYLING
+                </p>
+
+                <h3>
+                    Premium Styling
+                </h3>
+
+                <span>
+                    Complete styling for a special occasion.
+                </span>
+
+                <button>
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     GALLERY
+===================================== -->
+
+<section
+    class="gallery"
+    id="gallery"
+>
+
+
+    <div class="gallery-heading">
+
+        <p class="section-label">
+            OUR GALLERY
+        </p>
+
+        <h2>
+
+            Style In
+
+            <span>
+                Every Detail
+            </span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <img
+            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg"
+            alt="Salon"
+        >
+
+
+        <img
+            src="https://images.pexels.com/photos/3992870/pexels-photo-3992870.jpeg"
+            alt="Hair Cut"
+        >
+
+
+        <img
+            src="https://images.pexels.com/photos/3992869/pexels-photo-3992869.jpeg"
+            alt="Hair Styling"
+        >
+
+
+        <img
+            src="https://images.pexels.com/photos/3997380/pexels-photo-3997380.jpeg"
+            alt="Hair Service"
+        >
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CONTACT
+===================================== -->
+
+<section
+    class="contact"
+    id="contact"
+>
+
+
+    <div class="contact-content">
+
+
+        <p class="section-label">
+            GET IN TOUCH
+        </p>
+
+
+        <h2>
+
+            Ready For Your
+
+            <span>
+                New Look?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Visit our salon or contact us
+            to book your next beauty
+            experience.
+
+        </p>
+
+
+        <div class="contact-details">
+
+
+            <div>
+
+                <strong>
+                    📍 Address
+                </strong>
+
+                <span>
+                    123 Beauty Street, Your City
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    📞 Phone
+                </strong>
+
+                <span>
+                    +91 98765 43210
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    ✉ Email
+                </strong>
+
+                <span>
+                    hello@glowgrace.com
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-box">
+
+
+        <h3>
+            Book Appointment
+        </h3>
+
+
+        <input
+            type="text"
+            placeholder="Your Name"
+        >
+
+
+        <input
+            type="tel"
+            placeholder="Phone Number"
+        >
+
+
+        <input
+            type="text"
+            placeholder="Choose Service"
+        >
+
+
+        <button>
+            Book Now →
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+
+    <div class="footer-main">
+
+
+        <div class="footer-left">
+
+            <h2>
+
+                Glow<span>
+                    &Grace
+                </span>
+
+            </h2>
+
+            <p>
+                Premium Hair & Beauty Salon
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#gallery">
+                Gallery
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📍 Your City, India
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉ hello@glowgrace.com
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 Glow & Grace.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    let menuBtn =
+        document.querySelector("#menuBtn");
+
+    let mobileNav =
+        document.querySelector("#mobileNav");
+
+
+    menuBtn.addEventListener("click", function () {
+
+        mobileNav.classList.toggle("show");
+
+    });
+
+
+
+    /* =========================
+       MOBILE NAV CLOSE
+    ========================= */
+
+    let mobileLinks =
+        document.querySelectorAll(
+            ".mobile-nav a"
+        );
+
+
+    mobileLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                mobileNav.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+    });
+
+
+
+    /* =========================
+       SERVICE FILTER
+    ========================= */
+
+    let filterButtons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+
+    let serviceCards =
+        document.querySelectorAll(
+            ".service-card"
+        );
+
+
+    filterButtons.forEach(function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+
+                filterButtons.forEach(
+                    function (btn) {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                let category =
+                    button.dataset.category;
+
+
+                serviceCards.forEach(
+                    function (card) {
+
+
+                        if (
+                            category === "all" ||
+                            card.dataset.category === category
+                        ) {
+
+                            card.style.display =
+                                "block";
+
+                        }
+
+                        else {
+
+                            card.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    });
+
+
+
+    /* =========================
+       SERVICE SEARCH
+    ========================= */
+
+    let serviceSearch =
+        document.querySelector(
+            "#serviceSearch"
+        );
+
+
+    serviceSearch.addEventListener(
+        "input",
+        function () {
+
+
+            let searchValue =
+                serviceSearch.value
+                .toLowerCase()
+                .trim();
+
+
+            serviceCards.forEach(
+                function (card) {
+
+
+                    let cardText =
+                        card.textContent
+                        .toLowerCase();
+
+
+                    if (
+                        cardText.includes(
+                            searchValue
+                        )
+                    ) {
+
+                        card.style.display =
+                            "block";
+
+                    }
+
+                    else {
+
+                        card.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>
